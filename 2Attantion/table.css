@@ -1,0 +1,128 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+table {
+  width: 1200px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+th {
+  text-align: left;
+}
+thead th {
+  background-color: #55608f;
+}
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+
+
+
+.exit_button button {
+  margin: 20px;
+  float: right;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 50px;
+  background: transparent;
+  border: none;
+  transition: 1s;
+}
+
+.exit_button button:hover {
+color: #55608f;
+cursor: pointer;
+
+}
+
+.button_link button {
+  margin: 0px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 18px;
+  background: transparent;
+  border: none;
+  transition: 0.6s;
+}
+
+.button_link button:hover {
+color: #6b558f;
+cursor: pointer;
+
+}
+
+ 
+
+.sort button {
+  font-weight: 450;
+  color: black;
+  position: relative;
+  float: left;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  margin-top: 25px;
+  height: 40px ;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sort button:hover {
+  background-color: #55608f;
+}
+
+.form-control {
+  color: #fff;
+  outline: none;
+  font-size: 20px;
+  width: 900px;
+  height: 40px;
+  margin: 20px;
+  border: none;
+  border-bottom: solid 2px white;
+  background: transparent;
+  padding-left: 30px;
+}
+
+.search {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 28px;
+  left: 180px;
+}
+
+
+.form-control::placeholder {color: #ffffff;}
+
+.form-control:focus::placeholder {opacity: 0;transition: opacity .1s ease;}
