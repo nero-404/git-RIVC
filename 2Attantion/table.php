@@ -177,6 +177,8 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 				}
 				}
 			</script>
+			<!-- test -->
+			<!-- test -->
 	</body>
 </html>
 	
