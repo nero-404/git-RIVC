@@ -84,6 +84,7 @@ cursor: pointer;
 }
 
  .error {
+  
   color: #6b558f;
   
  }
@@ -172,7 +173,23 @@ cursor: pointer;
 }
 
 .plus {
-  height: 100%;
+  width: 100%;
+  height: 40px;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  transition: .5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+
+}
+
+.plus:hover {
+    background-color: #fefefe71
+}
+
+.space {
+    padding-left: 70px;
 }
 
 
