@@ -1,3 +1,4 @@
+
 html,
 body {
   height: 100%;
@@ -52,6 +53,52 @@ tbody td:hover:before {
 
 
 
+/* Скрытие модального окна по умолчанию */
+.modalerror {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+  }
+  
+  /* Стили для контента модального окна */
+  .modal-contenterror {
+	background-color: white;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	text-align: center;
+  }
+  
+  /* Стили для кнопки закрытия */
+  .closeerror {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .closeerror:hover,
+  .closeerror:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+
+
+
+
+
+
+
+
 .exit_button button {
   margin: 20px;
   float: right;
@@ -80,8 +127,8 @@ cursor: pointer;
 .button_link button:hover {
 color: #6b558f;
 cursor: pointer;
-
 }
+
 
  .error {
   
@@ -191,6 +238,33 @@ cursor: pointer;
 .space {
     padding-left: 70px;
 }
+
+      /* модальное окно ошибки */
+			/* Style the module window container */
+			.module-window {
+			width: 500px;
+			height: 300px;
+			border: 1px solid #000;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #fff;
+			z-index: 9999;
+			padding: 20px;
+			box-sizing: border-box;
+			}
+			
+			/* Style the close button */
+			.module-window .close-button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 5px 10px;
+			background-color: #f00;
+			color: #fff;
+			cursor: pointer;
+			}
 
 
 

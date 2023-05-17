@@ -6,6 +6,7 @@ require "db.php";
 
 if ($_GET['id'] =='') {
 	header('Location: /table.php?id='.$_SESSION['logged_user']->id);
+	$Where = '/table.php?id='.$_SESSION['logged_user']->id;
 }
 if ($_GET['id'] == $_SESSION['logged_user']->id) {
 	$position = 'signin';
@@ -21,9 +22,45 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 		<link rel="stylesheet" href="sas.css">
 		<!-- <link rel="stylesheet" href="InputForm.css"> -->
 
+
 	</head>
 	<body>
 		
+	<?php
+		if ($_GET["allgood"]=="allbad") {
+		echo
+		'
+		<div class="module-window" id="module-window">
+			<h2>Welcome to my module window!</h2>
+			<p>This is an example of a module window in PHP.</p>
+		 	<button class="close-button" onclick="closeModuleWindow()">X</button>
+		</div>
+	   
+		
+		';}
+	?>
+
+
+
+
+
+
+
+
+<!-- Модальное окно, которое появляется при ошибке -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -71,7 +108,7 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 						<td><?= $product[2] ?></td>
 						<td><?= $product[3] ?></td>
 						<td><?= $product[4] ?></td>
-						<td><div class = "button_link"><a href="updatePage.php?id=<?= $product[0] ?>"><button>Редактировать</button></a></div></td>
+						<td><div class = "button_link"><a href="updatePage.php?id=<?= $product[0] ?>" target="_black" onclick="window.open(this.href,this.target,'width=500,height=600,'+'location=no,toolbar=no,menubar=no,status=no');return false;"><button>Редактировать</button></a></div></td>
 						<td><div class = "button_link"><a href="vendor/delete.php?id=<?= $product[0] ?>"><button>Удалить</button></a></td> 
 					</tr>
 
@@ -122,29 +159,33 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 							if(isset($data['addline'])){
 							$error = array();
 							if(R::count('items', 'moduleName = ?', array($data['moduleName'])) > 0){
-								$errorq[] = 'Название модуля уже используется';
+								$error[] = 'Название модуля уже используется';
 							}
 
-							if(empty($errorq)){
+							if(empty($error)){
 								$allgood = 'allgood';
 								$moduleName = $_POST['moduleName'];
 								$MinSupportedVersion = $_POST['MinSupportedVersion'];
 								$ActualVersion = $_POST['ActualVersion'];
 								$Blacklist = $_POST['Blacklist'];
-
 								mysqli_query($connect, "INSERT INTO items (id, moduleName, MinSupportedVersion, ActualVersion, Blacklist) VALUES (NULL, '$moduleName', '$MinSupportedVersion', '$ActualVersion', '$Blacklist')");
-								// header('Location: /');
+								$Where = '/table.php?id='.$_SESSION['logged_user']->id;
+								echo "<script> window.location.href='$Where&allgood=$allgood'</script>";
 								
 								}else{
-								echo "<div class = error>".array_shift($errorq)."</div>";
+								echo "<div class = error>".array_shift($error)."</div>";
 								$allgood = 'allbad';
+								$Where = '/table.php?id='.$_SESSION['logged_user']->id;
+								echo "<script> window.location.href='$Where&allgood=$allgood'</script>";
 							}
 							}
 						
 							?>
-							<button name = "addline" class="btn" type="submit" onClick="refreshPage()">Добавить </button>
+							<button onclick="showError('Ой! Что-то пошло не так.')" name = "addline" class="btn" type="submit">Добавить </button>
 							
 						</form>
+
+
 
 
 
@@ -155,6 +196,28 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 	
 			<script>
 				
+				// Open the module window
+				function openModuleWindow() {
+					document.getElementById("module-window").style.display = "block";
+				}
+				
+				// Close the module window
+				function closeModuleWindow() {
+					document.getElementById("module-window").style.display = "none";
+				}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				
 				var modal = document.querySelector('.modal');
@@ -176,6 +239,22 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 					modal.style.display = "none";
 				}
 				}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</script>
 			<!-- test -->
 			<!-- test -->
