@@ -15,10 +15,22 @@ if(isset($data['signup'])){
 		$error[] = 'Повторите пароль';
 	}
 	if(R::count('users', 'loginn = ?', array($data['loginn'])) > 0){
-		$error[] = 'Логин занят';
+		$error[] = '<div id="err" class="err">
+		<div class="content">	
+		  <span class="oshibka">Логин занят!</span>
+		 <buttom class="close"><a href="index.php">&times;</a></buttom>
+		</div>
+	  </div>
+	  ';
 	}
 	if(trim($data['password']) != trim($data['password_2'])){
-		$error[] = 'Пароли не совпадают';
+		$error[] = '<div id="err" class="err">
+		<div class="content">	
+		  <span class="oshibka">Пароли не совпадают!</span>
+		 <buttom class="close"><a href="index.php">&times;</a></buttom>
+		</div>
+	  </div>
+	  ';
 	}
 
 	if(empty($error)){
@@ -50,12 +62,25 @@ if (isset($data['signin']))
 
 		else
 		{
-			echo "Неверный пароль";
+			echo "<div id='err' class='err'>
+		<div class='content'>	
+		<buttom class='close'><a href='index.php'>&times;</a></buttom>
+		  <span class='oshibka'>Неверный пароль</span>
+		 
+		</div>
+	  </div>
+	  ";
 		}
 	}
 	else
 	{
-		echo "Такого ользователя не существует";
+		echo "<div id='err' class='err'>
+		<div class='content'>	
+		  <span class='oshibka'>Такого пользователя не существует</span>
+		 <buttom class='close'><a href='index.php'>&times;</a></buttom>
+		</div>
+	  </div>
+	  ";
 	}
 
 }
@@ -92,8 +117,9 @@ if (isset($data['signin']))
             <input type="text" placeholder="  Введите логин" id="login"  class="login"  name = "loginn">
             <input type="password" placeholder="  Введите пароль" required minlength="4" maxlength="8" class="pass" name = "password">
             <br>
+			<button class="but" name = "signin">Войти</button>
             <button onclick="viewDiv()" value="Click" class="but">Регистрация</button>
-            <button class="but" name = "signin">Войти</button>
+            
         </form>
 
         </div>
@@ -104,6 +130,8 @@ if (isset($data['signin']))
                 <input type="password" placeholder="Введите пароль" required minlength="4" maxlength="8" class="pass" name = "password">
                 <input type="password" placeholder="Подтвердите пароль" required minlength="4" maxlength="8" class="pass" name = "password_2">
                 <button onclick="viewDiv()" value="Click" class="but" name = "signup">Зарегистрироваться</button>
+				<br>
+				<button onclick="unViewDiv()" value="Click" class="nazad" name = "signup">Назад</button>
             </form>
 
         </div>

@@ -198,13 +198,7 @@ $user = R::findOne('users', 'id = ?', array($_GET['id']));
 							modal.style.display = "none";
 						});
 
-						// Закрытие модального окна при клике вне окна
-						window.addEventListener("click", function(event) {
-							if (event.target === modal) {
-								modal.style.display = "none";
-							}
-						});
-
+					
 						// Выполнить действия после нажатия на кнопку "Окей"
 						modalOKButton.addEventListener("click", function() {
 							// Выполните здесь нужные действия после нажатия на кнопку "Окей"

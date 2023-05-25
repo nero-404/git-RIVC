@@ -87,3 +87,51 @@ input[type=text]:focus, input[type=password]:focus {
     margin: -70px 0 0 -170px;
     border: solid 1px rgb(216, 210, 210);
 }
+
+
+.err {
+    display: block;
+    position: fixed;
+    z-index: 9999;
+    left: 10;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .content {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  a {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+
+.nazad {
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
+    background-color: #c8c8c8;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.nazad:hover {
+    background-color: #54628da8;
+}
+
+.oshibka {
+    font-size: 1.3em;
+}
+
